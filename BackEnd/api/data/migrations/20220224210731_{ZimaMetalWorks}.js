@@ -36,16 +36,15 @@ exports.up = async (knex) => {
             quotes.increments('quoteID');
             quotes
                 .integer('userID')
-                .notNullable()
                 .references('userID')
                 .inTable('users')
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT');
-            quotes.string('name').notNullable();
-            quotes.text('number').notNullable();
-            quotes.string('email').notNullable();
+            quotes.string('name');
+            quotes.text('number');
+            quotes.string('email');
             quotes.string('subject').notNullable();
-            quotes.string('body').notNullable();
+            quotes.string('body', 1000).notNullable();
             quotes.string('status').defaultTo('New')
             quotes.date('dateSent')
             quotes.boolean('project').defaultTo(false)
@@ -59,10 +58,11 @@ exports.up = async (knex) => {
                 .inTable('users')
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT');
+            message.string('message', 1000).notNullable();
             message.dateTime('timeSent').notNullable();
         })
         .createTable('testimonial', (testimonial) => {
-            testimonial.increments('testimonialID');
+            testimonial.increments('testID');
             testimonial
                 .integer('userID')
                 .notNullable()
@@ -71,10 +71,10 @@ exports.up = async (knex) => {
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT');
             testimonial.integer('rating').notNullable();
-            testimonial.string('body').notNullable();
+            testimonial.string('body', 1000).notNullable();
             testimonial.date('dateSent').notNullable();
         })
-        .createTable('quoteIMG', (quoteIMG) => {
+        .createTable('quoteImg', (quoteIMG) => {
             quoteIMG.increments('imageID');
             quoteIMG
                 .integer('quoteID')
@@ -84,7 +84,7 @@ exports.up = async (knex) => {
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT');
             quoteIMG.string('image').notNullable();
-            quoteIMG.boolean('pinnedIMG').defaultTo(false);
+            quoteIMG.boolean('pinnedImg').defaultTo(false);
         })
         .createTable('quoteUpdates', (updates) => {
             updates.increments('updateID');
@@ -99,3 +99,17 @@ exports.up = async (knex) => {
             updates.date('dateSent').notNullable();
         })
 };
+
+exports.down = async (knex) => {
+    await knex.schema
+        .dropTableIfExists('quoteUpdates')
+        .dropTableIfExists('quoteIMG')
+        .dropTableIfExists('testimonial')
+        .dropTableIfExists('message')
+        .dropTableIfExists('quotes')
+        .dropTableIfExists('updateHours')
+        .dropTableIfExists('updateAbout')
+        .dropTableIfExists('updateAboveTesti')
+        .dropTableIfExists('updateLanding')
+        .dropTableIfExists('users');
+}

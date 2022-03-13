@@ -11,8 +11,8 @@ exports.seed = function (knex) {
                 email: 'darrylwilson@gmail.com',
                 subject: 'Catalytic Converter',
                 body: ' I was wondering about availability and rates. I need help with the following: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat in egestas erat imperdiet. Nunc sed blandit libero volutpat sed cras ornare arcu.',
-                status: 'pending',
-                timeSent: '2020-06-10T00:00:00.000Z',
+                status: 'On-Going',
+                dateSent: '2020-02-24T00:00:00.000Z',
                 project: false,
             },
             {
@@ -23,8 +23,8 @@ exports.seed = function (knex) {
                 email: null,
                 subject: 'Loren Ipsum',
                 body: ' I was wondering about availability and rates. I need help with the following: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat in egestas erat imperdiet. Nunc sed blandit libero volutpat sed cras ornare arcu.',
-                status: 'pending',
-                timeSent: '2020-06-10T09:26:03.478039Z',
+                status: 'New',
+                dateSent: '2020-06-10T09:26:03.478039Z',
                 project: false,
             },
             {
@@ -35,8 +35,8 @@ exports.seed = function (knex) {
                 email: 'OneManBand@gmail.com',
                 subject: 'Loren Ipsum',
                 body: ' I was wondering about availability and rates. I need help with the following: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placerat in egestas erat imperdiet. Nunc sed blandit libero volutpat sed cras ornare arcu.',
-                status: 'pending',
-                timeSent: '2020-06-10T09:26:03.478039Z',
+                status: 'New',
+                dateSent: '2020-06-10T09:26:03.478039Z',
                 project: false,
             },
         ])
