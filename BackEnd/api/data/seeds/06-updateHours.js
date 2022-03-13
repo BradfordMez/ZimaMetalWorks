@@ -4,13 +4,13 @@ exports.seed = function (knex) {
     .then(function () {
       return knex("updateHours").insert([
         {
-          mon: "8:00am - 4:00pm",
-          tue: "8:00am - 4:00pm",
-          wed: "8:00am - 4:00pm",
-          thu: "8:00am - 4:00pm",
-          fri: "8:00am - 4:00pm",
-          sat: "Closed",
-          sun: "Closed",
+          monday: "8:00am - 4:00pm",
+          tuesday: "8:00am - 4:00pm",
+          wednesday: "8:00am - 4:00pm",
+          thursday: "8:00am - 4:00pm",
+          friday: "8:00am - 4:00pm",
+          saturday: "Closed",
+          sunday: "Closed",
         },
       ]);
     });
